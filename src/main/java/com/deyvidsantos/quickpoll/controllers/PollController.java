@@ -21,6 +21,8 @@ import com.deyvidsantos.quickpoll.domain.Poll;
 import com.deyvidsantos.quickpoll.exceptions.ResourceNotFoundException;
 import com.deyvidsantos.quickpoll.repositories.PollRepository;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class PollController {
     
@@ -34,7 +36,7 @@ public class PollController {
     }
 
     @PostMapping("/polls")
-    public ResponseEntity<?> createPoll(@RequestBody Poll poll) {
+    public ResponseEntity<?> createPoll(@Valid @RequestBody Poll poll) {
         poll = pollRepository.save(poll);
 
         // Locação de header para o novo recurso criado

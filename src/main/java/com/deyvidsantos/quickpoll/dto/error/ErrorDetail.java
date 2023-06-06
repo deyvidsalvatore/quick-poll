@@ -1,4 +1,8 @@
-package com.deyvidsantos.quickpoll.dto;
+package com.deyvidsantos.quickpoll.dto.error;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ErrorDetail {
     
@@ -6,7 +10,10 @@ public class ErrorDetail {
     private Integer status;
     private String detail;
     private Long timeStamp;
+    private String path;
     private String developerMessage;
+
+    private Map<String,List<ValidationError>>errors=new HashMap<String,List<ValidationError>>();
 
 
     public String getTitle() {
@@ -41,6 +48,14 @@ public class ErrorDetail {
         this.timeStamp = timeStamp;
     }
 
+    public String getPath() {
+        return this.path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
     public String getDeveloperMessage() {
         return this.developerMessage;
     }
@@ -49,4 +64,12 @@ public class ErrorDetail {
         this.developerMessage = developerMessage;
     }
 
+    public Map<String,List<ValidationError>> getErrors() {
+        return this.errors;
+    }
+
+    public void setErrors(Map<String,List<ValidationError>> errors) {
+        this.errors = errors;
+    }
+    
 }
